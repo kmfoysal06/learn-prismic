@@ -28,7 +28,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                   <ul className="charming-portfolio-social-links">
                       {slice.primary.social_links.map((item) => (
                         <li key={item.link_name}>
-                          <a href={item.link.url} target="_blank" rel="noopener noreferrer">
+                          <a href="#" target="_blank" rel="noopener noreferrer">
                             {item.link_name}
                           </a>
                         </li>
