@@ -1,8 +1,17 @@
+"use client";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import "@/app/styles/header.css";
 import Link from 'next/link'
+
+
+
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faBars} from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 // import "@/app/styles/fa.css"
 
@@ -15,6 +24,11 @@ export type HeaderProps = SliceComponentProps<Content.HeaderSlice>;
  * Component for "Header" Slices.
  */
 const Header: FC<HeaderProps> = ({ slice }) => {
+  const handleMenuToggle = (e: React.MouseEvent<HTMLDivElement>) => {
+    // add mobile-menu-open class to header
+    const header = e.currentTarget.closest(".charming-portfolio-header");
+    header?.classList.toggle("mobile-menu-open");
+  };
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -28,10 +42,13 @@ const Header: FC<HeaderProps> = ({ slice }) => {
           <li><Link href="/privacy-policy">Privacy Policy</Link></li>
         </ul>
         <Link href="github.com" className="header-icon">
-          <i className="fa-brands fa-github"></i>
+        {/* <FontAwesomeIcon icon={faCodeMerge} /> */}
+        {/* <FontAwesomeIcon icon="fa-regular fa-circle-user" /> */}
+        <FontAwesomeIcon icon={faGithub} width={"20px"} />
         </Link>
-        <div className="menu-icons">
-          <i className="fa-solid fa-bars menu-toggle"></i>
+        <div className="menu-icons" onClick={handleMenuToggle}>
+          {/* <FontAwesomeIcon icon={faBars} /> */}
+        <FontAwesomeIcon icon={faBars} width={"20px"} />
         </div>
 
       </header>

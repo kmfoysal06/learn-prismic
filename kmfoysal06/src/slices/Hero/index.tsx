@@ -4,6 +4,7 @@ import { SliceComponentProps } from "@prismicio/react";
 
 import "@/app/styles/home.css";
 import { PrismicNextImage } from "@prismicio/next";
+import { asLink } from "@prismicio/helpers";
 
 /**
  * Props for `Hero`.
@@ -26,13 +27,18 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                   <h2>Hello, I am <span className="highlight">{slice.primary.developer_full_name}</span></h2>
                   <p className="short-description">{slice.primary.developer_bio}</p>
                   <ul className="charming-portfolio-social-links">
-                      {slice.primary.social_links.map((item) => (
-                        <li key={item.link_name as string}>
-                          <a href="#" target="_blank" rel="noopener noreferrer">
-                            {item.link_name}
-                          </a>
-                        </li>
-                      ))}
+                      {slice.primary.social_links.map((item) => {
+                        const url = asLink(item.link);
+                        return (
+                          <li key={item.link_name as string}>
+                            {url && (
+                              <a href={url} target="_blank" rel="noopener noreferrer">
+                                {item.link_name}
+                              </a>
+                            )}
+                          </li>
+                        );
+                      })}
                   </ul>
               </div>
               <div className="hero-image hero__inner">

@@ -27,25 +27,28 @@ const Footer: FC<FooterProps> = ({ slice }) => {
           <div className="footer-search">
             <div className="search-and-profile">
               <div className="search">
-                <form role="search" method="get" id="searchform" className="searchform charming-portfolio-search" action="/">
+                {/* <form role="search" method="get" id="searchform" className="searchform charming-portfolio-search" action="/">
                   <div>
                     <label className="screen-reader-text" htmlFor="s">Search for Blogs:</label>
                     <input type="text" placeholder="Search" name="s" id="s" />
                       <button type="submit" className="submit charming-portfolio-header-search" aria-label="Search">
-                        <span className="dashicons dashicons-search"><span>
-                        </span></span></button>
+                        Search</button>
                   </div>
-                </form>
+                </form> */}
               </div>
             </div>
           </div>
-          <div className="footer-socials">
+          {/* <div className="footer-socials">
             <ul className="charming-portfolio-social-links">
-              <li><a href="https://profiles.wordpress.org/kmfoysal06/"><i className="fas fa-link"></i></a></li>
+              <li><a href="https://profiles.wordpress.org/kmfoysal06/">WordPress</a></li>
             </ul>
-          </div>
+          </div> */}
         </div>
-        <div className="footer-section footer-section-menus">
+        
+          <div className="demo">
+            <h2>aaaaaaaaaa</h2>
+          </div>
+        {/* <div className="footer-section footer-section-menus">
           <div className="footer-subsection">
             <h3>Latest Blogs:</h3>
             <ul>
@@ -58,7 +61,7 @@ const Footer: FC<FooterProps> = ({ slice }) => {
               <li> <a href="https://github.com/kmfoysal06" target="_blank">Github <i className="fa fa-external-link" aria-hidden="true"></i></a> </li>
               </ul>
           </div>
-        </div>
+        </div> */}
 
       </div>
       <div className="charming-portfolio-container copyright">

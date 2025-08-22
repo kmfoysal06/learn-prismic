@@ -36,12 +36,14 @@ body {
 /** social links **/
 
 .charming-portfolio-social-links a {
-    color: #000;
-    font-size: 20px;
+    color: #085979;
+    /* font-size: 20px; */
+    font-size: 16px;
+    text-decoration: none;
     padding: 8px;
-    border-radius: 8px;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(255, 255, 255, 0.4);
+    /* border-radius: 8px; */
+    /* transition: background 0.3s ease, box-shadow 0.3s ease; */
+    /* background: rgba(255, 255, 255, 0.4); */
 }
 
 .charming-portfolio-social-links {
@@ -383,10 +385,11 @@ body {
     background: #550080;
     color: #fff;
     border: none;
-    padding: 8px;
+    padding: 10px 8px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    margin-top: 10px;
 }
 
 
@@ -399,7 +402,7 @@ body {
     padding:0;
 }
 .charming-portfolio-footer-inner {
-    padding: 20px;
+    padding: 30px;
     max-inline-size: 1080px;
     padding-inline: 14px;
     margin: 20px auto;
@@ -474,6 +477,9 @@ body {
     margin-top: 0;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
+}
+.charming-portfolio-container.copyright {
+    text-align: center;
 }
 /** footer section end **/
 /** laptop **/

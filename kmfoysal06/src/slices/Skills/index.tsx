@@ -26,7 +26,6 @@ const Skills: FC<SkillsProps> = ({ slice }) => {
         </div>
         <div className="section-content">
           {slice.primary.skills.map((item, key) => (
-          <>
             <div className="single-skill" key={key}>
                 <PrismicNextImage 
                 field={item.skill_logo}
@@ -34,7 +33,6 @@ const Skills: FC<SkillsProps> = ({ slice }) => {
                 />
                 <h3>{item.skill_name}</h3>
             </div>
-          </>
           ))}
         </div>
       </div>
