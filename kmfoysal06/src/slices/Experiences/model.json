@@ -32,15 +32,6 @@
             "label": "Experiences",
             "repeat": true,
             "fields": {
-              "image": {
-                "type": "Link",
-                "config": {
-                  "label": "Image",
-                  "placeholder": "",
-                  "select": "media",
-                  "allowText": true
-                }
-              },
               "designation": {
                 "type": "Text",
                 "config": {
@@ -76,6 +67,21 @@
                   "placeholder_false": "false",
                   "placeholder_true": "true",
                   "default_value": false
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
                 }
               }
             }

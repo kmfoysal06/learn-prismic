@@ -32,20 +32,26 @@
             "label": "Projects",
             "repeat": true,
             "fields": {
-              "image": {
-                "type": "Link",
-                "config": {
-                  "label": "Image",
-                  "placeholder": "",
-                  "select": "media",
-                  "allowText": true
-                }
-              },
               "description": {
                 "type": "Text",
                 "config": {
                   "label": "Description",
                   "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
                 }
               }
             }

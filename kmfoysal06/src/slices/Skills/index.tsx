@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next/pages";
 
 /**
  * Props for `Skills`.
@@ -21,15 +21,21 @@ const Skills: FC<SkillsProps> = ({ slice }) => {
     >
       <div className="charming-portfolio-container charming-portfolio-skills-section">
         <div className="section-header">
-          <h2 className="badge">Skills</h2>
-          <p>The skills, tools and technologies I am really good at:</p>
+          <h2 className="badge">{slice.primary.badge}</h2>
+          <p>{slice.primary.section_description}</p>
         </div>
         <div className="section-content">
-          <div className="single-skill">
-            {/* <img src="https://cp.kmfoysal06.com/wp-content/uploads/2025/08/images-copy-1.png" width="100px" height="100px" alt="JavaScript" /> */}
-              <Image src="https://cp.kmfoysal06.com/wp-content/uploads/2025/08/images-copy-1.png" width={100} height={100} alt="JavaScript" loading="lazy" />
-              <h3>JavaScript</h3>
-          </div>
+          {slice.primary.skills.map((item, key) => (
+          <>
+            <div className="single-skill" key={key}>
+                <PrismicNextImage 
+                field={item.skill_logo}
+                alt={typeof item.skill_name === 'string' && item.skill_name ? (item.skill_name as never) : undefined}
+                />
+                <h3>{item.skill_name}</h3>
+            </div>
+          </>
+          ))}
         </div>
       </div>
     </section>

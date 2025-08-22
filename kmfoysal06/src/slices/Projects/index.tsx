@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * Props for `Projects`.
@@ -19,19 +19,22 @@ const Projects: FC<ProjectsProps> = ({ slice }) => {
     >
       <div className="charming-portfolio-container charming-portfolio-projects-section">
         <div className="section-header">
-          <h2 className="badge">Projects</h2>
-          <p>Some of the noteworthy projects I have built:</p>
+          <h2 className="badge">{slice.primary.badge}</h2>
+          <p>{slice.primary.section_description}</p>
         </div>
         <div className="section-content">
-          <div className="single-project">
-            {/* <img src="https://ps.w.org/charming-portfolio/assets/screenshot-9.png?rev=3138395" width="300px" height="auto" alt="Project 1" /> */}
-            <Image src="https://ps.w.org/charming-portfolio/assets/screenshot-9.png?rev=3138395" width={300} height={300} alt="Project 1" loading="lazy" />
-              <div className="project-details">
-                <h3>Open Directory</h3>
-                <p>Open Directory is a WordPress Plugin That Will Allow You To Have a Directory of Anything Hosted on Any WordPress Sitenn</p>
-                <small>directoryWordPress PluginWordPress Option API</small>
-              </div>
-          </div>
+          {slice.primary.projects.map((item, key) => (
+            <div className="single-project" key={key}>
+                <PrismicNextImage 
+                  field={item.image} 
+                  alt={typeof item.title === 'string' && item.title ? (item.title as never) : undefined}
+                />
+                <div className="project-details">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                </div>
+            </div>
+          ))}
 
         </div>
 

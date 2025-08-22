@@ -32,13 +32,19 @@
             "label": "Skills",
             "repeat": true,
             "fields": {
+              "skill_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Skill Name",
+                  "placeholder": ""
+                }
+              },
               "skill_logo": {
-                "type": "Link",
+                "type": "Image",
                 "config": {
                   "label": "Skill Logo",
-                  "placeholder": "",
-                  "select": "media",
-                  "allowText": true
+                  "constraint": {},
+                  "thumbnails": []
                 }
               }
             }

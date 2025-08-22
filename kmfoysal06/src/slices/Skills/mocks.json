@@ -20,19 +20,37 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
+								"skill_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pull",
+									"type": "Text"
+								}
+							],
+							[
 								"skill_logo",
 								{
-									"__TYPE__": "LinkContent",
-									"key": "10e43386-33f1-470a-b694-a3ff3f8a3132",
-									"value": {
-										"__TYPE__": "FileLink",
-										"id": "mock_Media_link",
-										"kind": "file",
-										"name": "mock_name",
-										"url": "https://source.unsplash.com/daily",
-										"size": "0",
-										"text": "proud"
-									}
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+										"width": 2747,
+										"height": 4120
+									},
+									"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+									"width": 2747,
+									"height": 4120,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "escape",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
 								}
 							]
 						]

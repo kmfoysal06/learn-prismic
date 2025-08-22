@@ -321,16 +321,6 @@ export type ContactSlice = prismic.SharedSlice<
  */
 export interface ExperiencesSliceDefaultPrimaryExperiencesItem {
   /**
-   * Image field in *Experiences → Default → Primary → Experiences*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: experiences.default.primary.experiences[].image
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
-  image: prismic.LinkToMediaField<prismic.FieldState, never>;
-
-  /**
    * Designation field in *Experiences → Default → Primary → Experiences*
    *
    * - **Field Type**: Text
@@ -380,6 +370,26 @@ export interface ExperiencesSliceDefaultPrimaryExperiencesItem {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   currently_working: prismic.BooleanField;
+
+  /**
+   * Image field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
 }
 
 /**
@@ -733,16 +743,6 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export interface ProjectsSliceDefaultPrimaryProjectsItem {
   /**
-   * Image field in *Projects → Default → Primary → Projects*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: projects.default.primary.projects[].image
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
-  image: prismic.LinkToMediaField<prismic.FieldState, never>;
-
-  /**
    * Description field in *Projects → Default → Primary → Projects*
    *
    * - **Field Type**: Text
@@ -751,6 +751,26 @@ export interface ProjectsSliceDefaultPrimaryProjectsItem {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Title field in *Projects → Default → Primary → Projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.projects[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *Projects → Default → Primary → Projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.projects[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -870,14 +890,24 @@ export type RichTextSlice = prismic.SharedSlice<
  */
 export interface SkillsSliceDefaultPrimarySkillsItem {
   /**
+   * Skill Name field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skills[].skill_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  skill_name: prismic.KeyTextField;
+
+  /**
    * Skill Logo field in *Skills → Default → Primary → Skills*
    *
-   * - **Field Type**: Link to Media
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: skills.default.primary.skills[].skill_logo
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  skill_logo: prismic.LinkToMediaField<prismic.FieldState, never>;
+  skill_logo: prismic.ImageField<never>;
 }
 
 /**

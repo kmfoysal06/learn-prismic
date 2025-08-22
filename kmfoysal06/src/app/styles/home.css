@@ -222,6 +222,7 @@ body {
     border-radius: 8px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    height: 180px;
 }
 /** projects section end **/
 
@@ -315,6 +316,7 @@ body {
 
 .charming-portfolio-experience-section .single-experience img {
     width: min(100%, 200px);
+    height: 36px;
     border-radius: 8px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;

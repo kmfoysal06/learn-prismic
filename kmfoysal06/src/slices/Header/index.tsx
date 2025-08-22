@@ -2,6 +2,8 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import "@/app/styles/header.css";
+import Link from 'next/link'
+
 // import "@/app/styles/fa.css"
 
 /**
@@ -21,13 +23,13 @@ const Header: FC<HeaderProps> = ({ slice }) => {
       <header className="charming-portfolio-header charming-portfolio-container" role="banner">
         <h3>CP</h3>
         <ul className="header-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/privacy-policy">Privacy Policy</Link></li>
         </ul>
-        <a href="github.com" className="header-icon">
+        <Link href="github.com" className="header-icon">
           <i className="fa-brands fa-github"></i>
-        </a>
+        </Link>
         <div className="menu-icons">
           <i className="fa-solid fa-bars menu-toggle"></i>
         </div>
