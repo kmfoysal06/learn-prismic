@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
 
 /**
  * Props for `Contact`.
@@ -34,7 +35,8 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           </div>
           <div className="contact-form">
             <div className="form-image">
-              <img src="https://cp.kmfoysal06.com/wp-content/plugins/charming-portfolio/assets/build/img/charming_portfolio-default-avater.jpg" width="300px" height="auto" alt="Kazi Mohammad Foysal" loading="lazy" />
+              {/* <img src="https://cp.kmfoysal06.com/wp-content/plugins/charming-portfolio/assets/build/img/charming_portfolio-default-avater.jpg" width="300px" height="auto" alt="Kazi Mohammad Foysal" loading="lazy" /> */}
+              <Image src="https://cp.kmfoysal06.com/wp-content/plugins/charming-portfolio/assets/build/img/charming_portfolio-default-avater.jpg" width={300} height={300} alt="Kazi Mohammad Foysal" loading="lazy" />
             </div>
 
             <div className="form-container">

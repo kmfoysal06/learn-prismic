@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
 
 /**
  * Props for `Skills`.
@@ -25,7 +26,8 @@ const Skills: FC<SkillsProps> = ({ slice }) => {
         </div>
         <div className="section-content">
           <div className="single-skill">
-            <img src="https://cp.kmfoysal06.com/wp-content/uploads/2025/08/images-copy-1.png" width="100px" height="100px" alt="JavaScript" />
+            {/* <img src="https://cp.kmfoysal06.com/wp-content/uploads/2025/08/images-copy-1.png" width="100px" height="100px" alt="JavaScript" /> */}
+              <Image src="https://cp.kmfoysal06.com/wp-content/uploads/2025/08/images-copy-1.png" width={100} height={100} alt="JavaScript" loading="lazy" />
               <h3>JavaScript</h3>
           </div>
         </div>

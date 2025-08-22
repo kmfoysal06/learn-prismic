@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
 
 /**
  * Props for `Experiences`.
@@ -23,7 +24,9 @@ const Experiences: FC<ExperiencesProps> = ({ slice }) => {
         </div>
         <div className="section-content">
           <div className="single-experience" tabIndex={0}>
-            <img src="https://webermelon.com/wp-content/uploads/2022/09/Group-171.png" width="300px" height="auto" alt="Project 1" />
+            {/* <Image src="https://webermelon.com/wp-content/uploads/2022/09/Group-171.png" width="300px" height="auto" alt="Project 1" />
+             */}
+              <Image src="https://webermelon.com/wp-content/uploads/2022/09/Group-171.png" width={300} height={300} alt="Project 1" loading="lazy" />
               <div className="experience-details">
                 <div className="primary-details">
                   <h3>Webermelon</h3>

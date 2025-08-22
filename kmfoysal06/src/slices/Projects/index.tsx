@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
 
 /**
  * Props for `Projects`.
@@ -23,7 +24,8 @@ const Projects: FC<ProjectsProps> = ({ slice }) => {
         </div>
         <div className="section-content">
           <div className="single-project">
-            <img src="https://ps.w.org/charming-portfolio/assets/screenshot-9.png?rev=3138395" width="300px" height="auto" alt="Project 1" />
+            {/* <img src="https://ps.w.org/charming-portfolio/assets/screenshot-9.png?rev=3138395" width="300px" height="auto" alt="Project 1" /> */}
+            <Image src="https://ps.w.org/charming-portfolio/assets/screenshot-9.png?rev=3138395" width={300} height={300} alt="Project 1" loading="lazy" />
               <div className="project-details">
                 <h3>Open Directory</h3>
                 <p>Open Directory is a WordPress Plugin That Will Allow You To Have a Directory of Anything Hosted on Any WordPress Sitenn</p>
