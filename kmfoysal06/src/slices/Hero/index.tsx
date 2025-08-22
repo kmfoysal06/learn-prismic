@@ -27,7 +27,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                   <p className="short-description">{slice.primary.developer_bio}</p>
                   <ul className="charming-portfolio-social-links">
                       {slice.primary.social_links.map((item) => (
-                        <li key={item.link_name}>
+                        <li key={item.link_name as string}>
                           <a href="#" target="_blank" rel="noopener noreferrer">
                             {item.link_name}
                           </a>
@@ -36,7 +36,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                   </ul>
               </div>
               <div className="hero-image hero__inner">
-                  <PrismicNextImage field={slice.primary.developer_image} alt={slice.primary.developer_full_name} />
+                  <PrismicNextImage
+                    field={slice.primary.developer_image}
+                    alt={typeof slice.primary.developer_full_name === 'string' && slice.primary.developer_full_name ? (slice.primary.developer_full_name as never) : undefined}
+                  />
               </div>
           </div>
       </section>
