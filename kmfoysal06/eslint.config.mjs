@@ -13,7 +13,10 @@ const eslintConfig = [
   ...compat.config({
     extends: ["next/core-web-vitals", "next/typescript"],
     rules: {
-      '@next/next/no-img-element': 'off'
+      '@next/next/no-img-element': 'off',
+      '@next/next/no-html-link-for-pages': 'off',
+      '@next/next/no-css-tags': 'off',
+      '@next/next/no-head-element': 'off',
     }
   }),
 ];
