@@ -1,0 +1,51 @@
+{
+  "id": "experiences",
+  "type": "SharedSlice",
+  "name": "Experiences",
+  "description": "Experiences",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": ""
+          }
+        },
+        "section_description": {
+          "type": "Text",
+          "config": {
+            "label": "Section Description",
+            "placeholder": ""
+          }
+        },
+        "experiences": {
+          "type": "Group",
+          "config": {
+            "label": "Experiences",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Link",
+                "config": {
+                  "label": "Image",
+                  "placeholder": "",
+                  "select": "media",
+                  "allowText": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

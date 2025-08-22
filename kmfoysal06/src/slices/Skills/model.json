@@ -1,0 +1,51 @@
+{
+  "id": "skills",
+  "type": "SharedSlice",
+  "name": "Skills",
+  "description": "Skills",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "badge": {
+          "type": "Text",
+          "config": {
+            "label": "Badge",
+            "placeholder": "Skills"
+          }
+        },
+        "section_description": {
+          "type": "Text",
+          "config": {
+            "label": "Section Description",
+            "placeholder": "The skills, tools and technologies I am really good at:"
+          }
+        },
+        "skills": {
+          "type": "Group",
+          "config": {
+            "label": "Skills",
+            "repeat": true,
+            "fields": {
+              "skill_logo": {
+                "type": "Link",
+                "config": {
+                  "label": "Skill Logo",
+                  "placeholder": "",
+                  "select": "media",
+                  "allowText": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
