@@ -40,6 +40,43 @@
                   "select": "media",
                   "allowText": true
                 }
+              },
+              "designation": {
+                "type": "Text",
+                "config": {
+                  "label": "Designation",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "start_time": {
+                "type": "Date",
+                "config": {
+                  "label": "Start Time",
+                  "placeholder": ""
+                }
+              },
+              "end_time": {
+                "type": "Date",
+                "config": {
+                  "label": "End Time",
+                  "placeholder": ""
+                }
+              },
+              "currently_working": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Currently Working",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }

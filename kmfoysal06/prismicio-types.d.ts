@@ -329,6 +329,57 @@ export interface ExperiencesSliceDefaultPrimaryExperiencesItem {
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   image: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Designation field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].designation
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  designation: prismic.KeyTextField;
+
+  /**
+   * Description field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Start Time field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].start_time
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  start_time: prismic.DateField;
+
+  /**
+   * End Time field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.default.primary.experiences[].end_time
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  end_time: prismic.DateField;
+
+  /**
+   * Currently Working field in *Experiences → Default → Primary → Experiences*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: experiences.default.primary.experiences[].currently_working
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  currently_working: prismic.BooleanField;
 }
 
 /**

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
-import "@/slices/Hero/hero.css"
+import "@/app/styles/home.css";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**

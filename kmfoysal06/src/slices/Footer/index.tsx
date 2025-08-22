@@ -30,7 +30,7 @@ const Footer: FC<FooterProps> = ({ slice }) => {
                 <form role="search" method="get" id="searchform" className="searchform charming-portfolio-search" action="/">
                   <div>
                     <label className="screen-reader-text" htmlFor="s">Search for Blogs:</label>
-                    <input type="text" placeholder="Search" value="" name="s" id="s" />
+                    <input type="text" placeholder="Search" name="s" id="s" />
                       <button type="submit" className="submit charming-portfolio-header-search" aria-label="Search">
                         <span className="dashicons dashicons-search"><span>
                         </span></span></button>

@@ -22,8 +22,8 @@
 							[
 								"image",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "9c3f94e1-e318-4a60-8bbe-a4b9e79b5d96",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "FileLink",
 										"id": "mock_Media_link",
@@ -33,6 +33,45 @@
 										"size": "0",
 										"text": "completely"
 									}
+								}
+							],
+							[
+								"designation",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "judge",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "remarkable",
+									"type": "Text"
+								}
+							],
+							[
+								"start_time",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2015-02-02"
+								}
+							],
+							[
+								"end_time",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2015-08-15"
+								}
+							],
+							[
+								"currently_working",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
 								}
 							]
 						]
