@@ -32,7 +32,18 @@ const Experiences: FC<ExperiencesProps> = ({ slice }) => {
                                 <div className="primary-details">
                                     <h3>{item.title}    </h3>
                                     {/* <p className="timerange">Oct 2024 - Aug 2025</p> */}
-                                    <p className="timerange">{item.start_time} - {!item.currently_working ? item.end_time : "Current"}</p>
+                                    <p className="timerange">
+                                    {item.start_time
+                                        ? new Date(item.start_time).toLocaleString("en-US", { month: "short", year: "numeric" })
+                                        : "Unknown"}
+                                    {" - "}
+                                    {!item.currently_working
+                                        ? (item.end_time
+                                            ? new Date(item.end_time).toLocaleString("en-US", { month: "short", year: "numeric" })
+                                            : "Unknown")
+                                        : "Current"}
+                                    </p>
+
                                 </div>
                                 <p className="designation">{item.designation}</p>
                                 <p>{item.description}</p>

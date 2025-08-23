@@ -9,6 +9,7 @@ body {
     background-color: #55008047;
     color: #000;
     font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
 }
 
 .charming-portfolio-container .section-header {
@@ -480,6 +481,9 @@ body {
 }
 .charming-portfolio-container.copyright {
     text-align: center;
+    margin: 0 auto;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 /** footer section end **/
 /** laptop **/

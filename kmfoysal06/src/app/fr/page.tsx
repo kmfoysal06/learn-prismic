@@ -9,7 +9,7 @@ import { components } from "@/slices";
 export default async function Home() {
   const client = createClient();
   try {
-    const home = await client.getByUID("home", "home");
+    const home = await client.getByUID("home", "home", {lang: "fr-ca"});
     // <SliceZone> renders the page's slices.
     return <SliceZone slices={home.data.slices} components={components} />;
   }catch(e) {
@@ -20,7 +20,7 @@ export default async function Home() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("home", "home");
+  const home = await client.getByUID("home", "home", {lang: "fr-ca"});
   return {
     title: home.data.meta_title,
     description: home.data.meta_description,

@@ -48,10 +48,11 @@
 			},
 			"github_link": {
 				"__TYPE__": "LinkContent",
-				"key": "cc00dfd2-d7a4-4fbb-a6aa-73f051591f49",
+				"key": "faceb073-ab84-4c7b-8335-31876c82943b",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
+					"url": "https://prismic.io",
+					"text": "back"
 				}
 			}
 		},

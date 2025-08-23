@@ -6,12 +6,12 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
-export default async function Home() {
+export default async function About() {
   const client = createClient();
   try {
-    const home = await client.getByUID("home", "home");
+    const about = await client.getByUID("page", "about");
     // <SliceZone> renders the page's slices.
-    return <SliceZone slices={home.data.slices} components={components} />;
+    return <SliceZone slices={about.data.slices} components={components} />;
   }catch(e) {
     console.error(e);
   }
@@ -20,13 +20,13 @@ export default async function Home() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID("home", "home");
+  const about = await client.getByUID("page", "about");
   return {
-    title: home.data.meta_title,
-    description: home.data.meta_description,
+    title: about.data.meta_title,
+    description: about.data.meta_description,
     openGraph: {
-      title: home.data.meta_title ?? undefined,
-      images: [{ url: home.data.meta_image.url ?? "" }],
+      title: about.data.meta_title ?? undefined,
+      images: [{ url: about.data.meta_image.url ?? "" }],
     },
   };
 }

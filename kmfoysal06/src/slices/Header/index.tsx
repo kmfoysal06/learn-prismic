@@ -3,17 +3,14 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import "@/app/styles/header.css";
-import Link from 'next/link'
-
-
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faBars} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { PrismicNextLink } from "@prismicio/next";
 
-// import "@/app/styles/fa.css"
+import Link from 'next/link'
+
 
 /**
  * Props for `Header`.
@@ -35,11 +32,16 @@ const Header: FC<HeaderProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <header className="charming-portfolio-header charming-portfolio-container" role="banner">
-        <h3>CP</h3>
+        <h3>{slice.primary.logo_text}</h3>
         <ul className="header-nav">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+          {slice.primary.header_links.map((link, key) => (
+            <li key={key}>
+              <PrismicNextLink
+                key={link.key}
+                field={link}
+                />
+            </li>
+          ))}
         </ul>
         <Link href="github.com" className="header-icon">
         {/* <FontAwesomeIcon icon={faCodeMerge} /> */}

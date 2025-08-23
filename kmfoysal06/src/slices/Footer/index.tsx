@@ -1,6 +1,10 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faSearch} from "@fortawesome/free-solid-svg-icons";
 
 /**
  * Props for `Footer`.
@@ -19,49 +23,54 @@ const Footer: FC<FooterProps> = ({ slice }) => {
       <div className="charming-portfolio-container charming-portfolio-footer-inner">
         <div className="footer-section footer-owner-data">
           <div className="contactinfo">
-            <h3>Kazi Mohammad Foysal</h3>
-            <p>Web Developer</p>
-            <p>Anowara, Chittagong, Bangladesh</p>
-            <p>foysalkazimd01@gmail.com</p>
+            <h3>{slice.primary.name}</h3>
+            <p>{slice.primary.designation}</p>
+            <p>{slice.primary.location}</p>
+            <p>{slice.primary.email}</p>
           </div>
           <div className="footer-search">
             <div className="search-and-profile">
               <div className="search">
-                {/* <form role="search" method="get" id="searchform" className="searchform charming-portfolio-search" action="/">
+                <form role="search" method="get" id="searchform" className="searchform charming-portfolio-search" action="http://blog.kmfoysal06.com/">
                   <div>
                     <label className="screen-reader-text" htmlFor="s">Search for Blogs:</label>
                     <input type="text" placeholder="Search" name="s" id="s" />
                       <button type="submit" className="submit charming-portfolio-header-search" aria-label="Search">
-                        Search</button>
+                        <FontAwesomeIcon icon={faSearch} />
+                        </button>
                   </div>
-                </form> */}
+                </form>
               </div>
             </div>
           </div>
-          {/* <div className="footer-socials">
-            <ul className="charming-portfolio-social-links">
-              <li><a href="https://profiles.wordpress.org/kmfoysal06/">WordPress</a></li>
-            </ul>
-          </div> */}
         </div>
         
-          <div className="demo">
-            <h2>aaaaaaaaaa</h2>
-          </div>
-        {/* <div className="footer-section footer-section-menus">
-          <div className="footer-subsection">
+        <div className="footer-section footer-section-menus">
+          {
+            /**
+             * todo: load 5 latst blog from blog.kmfoysal06.com
+             */
+          }
+          {/* <div className="footer-subsection">
             <h3>Latest Blogs:</h3>
             <ul>
               <li> <a href="https://cp.kmfoysal06.com/index.php/2025/08/02/hello-world/">Hello world!</a> </li>
             </ul>
-          </div>
+          </div> */}
           <div className="footer-subsection">
             <h3>External Links:</h3>
             <ul>
-              <li> <a href="https://github.com/kmfoysal06" target="_blank">Github <i className="fa fa-external-link" aria-hidden="true"></i></a> </li>
+              {slice.primary.external_links.map((link, key) => (
+                <li key={key}>
+                  <PrismicNextLink
+                    key={link.key}
+                    field={link}
+                  />
+                </li>
+              ))}
               </ul>
           </div>
-        </div> */}
+        </div>
 
       </div>
       <div className="charming-portfolio-container copyright">
