@@ -8,8 +8,12 @@ header.charming-portfolio-header {
     padding: 8px 20px;
 }
 
+.charming-portfolio-header h3 .header-logo {
+    text-decoration: none;
+}
 .menu-icons {
     display: none;
+    position: relative;
 }
 
 

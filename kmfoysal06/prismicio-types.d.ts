@@ -69,6 +69,74 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+type FooterDocumentDataSlicesSlice = FooterSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+type HeaderDocumentDataSlicesSlice = HeaderSlice;
+
+/**
+ * Content for header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * Slice Zone field in *header*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<HeaderDocumentDataSlicesSlice>;
+}
+
+/**
+ * header document from Prismic
+ *
+ * - **API ID**: `header`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HeaderDocumentData>,
+    "header",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice =
   | ContactSlice
   | FooterSlice
@@ -137,7 +205,11 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type PageDocumentDataSlicesSlice = FooterSlice | HeaderSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | HeroSlice
+  | FooterSlice
+  | HeaderSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -209,7 +281,11 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = HomeDocument | PageDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | HeaderDocument
+  | HomeDocument
+  | PageDocument;
 
 /**
  * Primary content in *Contact → Default → Primary*
@@ -530,6 +606,16 @@ export interface FooterSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Footer Credit Text field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: CopyRight [current_year]
+   * - **API ID Path**: footer.default.primary.footer_credit_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  footer_credit_text: prismic.KeyTextField;
 }
 
 /**
@@ -993,6 +1079,12 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
+      HeaderDocument,
+      HeaderDocumentData,
+      HeaderDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,

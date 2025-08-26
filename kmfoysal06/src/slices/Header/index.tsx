@@ -1,6 +1,6 @@
 "use client";
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import "@/app/styles/header.css";
 
@@ -32,18 +32,24 @@ const Header: FC<HeaderProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <header className="charming-portfolio-header charming-portfolio-container" role="banner">
-        <h3>{slice.primary.logo_text}</h3>
+        <h3>
+          <Link href="/" className="header-logo">
+            {slice.primary.logo_text}
+          </Link>
+        </h3>
         <ul className="header-nav">
           {slice.primary.header_links.map((link, key) => (
             <li key={key}>
               <PrismicNextLink
                 key={link.key}
                 field={link}
+                // target="_blank"
                 />
             </li>
           ))}
         </ul>
-        <Link href="github.com" className="header-icon">
+        {/* <PrismicNextLink field={slice.primary.github_link} /> */}
+        <Link href={asLink(slice.primary.github_link) ?? "#"} className="header-icon" target="_blank">
         {/* <FontAwesomeIcon icon={faCodeMerge} /> */}
         {/* <FontAwesomeIcon icon="fa-regular fa-circle-user" /> */}
         <FontAwesomeIcon icon={faGithub} width={"20px"} />

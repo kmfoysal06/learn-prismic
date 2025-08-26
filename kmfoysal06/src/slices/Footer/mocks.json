@@ -39,13 +39,18 @@
 				]
 			},
 			"social_links": {
-				"__TYPE__": "LinkContent",
 				"key": "9aae9435-79e5-4d6b-a56a-e99a41c03659",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com",
 					"text": "report"
 				}
+			},
+			"footer_credit_text": {
+				"__TYPE__": "FieldContent",
+				"value": "tune",
+				"type": "Text"
 			}
 		},
 		"items": []

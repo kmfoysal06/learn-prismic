@@ -74,7 +74,11 @@ const Footer: FC<FooterProps> = ({ slice }) => {
 
       </div>
       <div className="charming-portfolio-container copyright">
-        <p> Copy RIght Bro Copy Right</p>
+        <p>
+          {
+            slice?.primary?.footer_credit_text ? slice.primary.footer_credit_text.replace("[current_year]", new Date().getFullYear().toString()) : "CopyRight " + new Date().getFullYear().toString()
+          }
+        </p>
       </div>
     </section>
   );

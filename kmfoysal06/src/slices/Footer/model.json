@@ -61,6 +61,13 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "footer_credit_text": {
+          "type": "Text",
+          "config": {
+            "label": "Footer Credit Text",
+            "placeholder": "CopyRight [current_year]"
+          }
         }
       },
       "items": {}
