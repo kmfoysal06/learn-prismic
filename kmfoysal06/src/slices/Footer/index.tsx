@@ -5,6 +5,7 @@ import { PrismicNextLink } from "@prismicio/next";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faSearch} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 /**
  * Props for `Footer`.
@@ -51,12 +52,17 @@ const Footer: FC<FooterProps> = ({ slice }) => {
              * todo: load 5 latst blog from blog.kmfoysal06.com
              */
           }
-          {/* <div className="footer-subsection">
-            <h3>Latest Blogs:</h3>
+          <div className="footer-subsection">
+            <h3>Languages:</h3>
             <ul>
-              <li> <a href="https://cp.kmfoysal06.com/index.php/2025/08/02/hello-world/">Hello world!</a> </li>
+              <li> 
+                <Link href={'/en-us'}>English</Link>
+               </li>
+              <li> 
+                <Link href={'/fr-ca'}>French</Link>
+               </li>
             </ul>
-          </div> */}
+          </div>
           <div className="footer-subsection">
             <h3>External Links:</h3>
             <ul>
