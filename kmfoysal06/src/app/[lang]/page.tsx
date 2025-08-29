@@ -11,7 +11,7 @@ import { components } from "@/slices";
 // }
 type ParamsType = {
   params: {
-    lang: string
+    lang: string;
   }
 }
 
@@ -19,13 +19,12 @@ export default async function Home({
   params
 }: ParamsType ) {
   const client = createClient();
-  const { lang } = await params;
-  // const { lang } = await params;
+  const lang = params.lang;
   try {
-    const home = await client.getByUID("home", "home", {lang});
+    const home = await client.getByUID("home", "home", { lang });
     // <SliceZone> renders the page's slices.
     return <SliceZone slices={home.data.slices} components={components} />;
-  }catch(e) {
+  } catch (e) {
     console.error(e);
   }
 
@@ -33,8 +32,9 @@ export default async function Home({
 
 export async function generateMetadata({ params }: ParamsType ): Promise<Metadata> {
   const client = createClient();
-  const { lang } = await params;
-  const home = await client.getByUID("home", "home", {lang});
+  const lang = params.lang;
+
+  const home = await client.getByUID("home", "home", { lang });
   return {
     title: home.data.meta_title,
     description: home.data.meta_description,

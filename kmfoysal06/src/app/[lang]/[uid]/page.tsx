@@ -7,33 +7,40 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
-// type Params = { uid: string };
 type Params = { uid: string; lang: string };
+type PageProps = { params: Params };
 
-export default async function Page({ params }: { params: Promise<Params> }) {
-  const { uid, lang } = await params;
+export default async function Page({ params }: PageProps) {
+  const { uid, lang } = params;
   const client = createClient();
-  const page = await client.getByUID("page", uid, { lang }).catch(() => notFound());
 
-  // <SliceZone> renders the page's slices.
+  const page = await client
+    .getByUID("page", uid, { lang: lang })
+    .catch(() => notFound())
+    .finally(() => {});
+
   return <SliceZone slices={page.data.slices} components={components} />;
 }
 
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
-  const { uid, lang } = await params;
+}: PageProps): Promise<Metadata> {
+  const { uid, lang } = params;
   const client = createClient();
-  const page = await client.getByUID("page", uid, { lang }).catch(() => notFound());
+
+  const page = await client
+    .getByUID("page", uid, { lang: lang })
+    .catch(() => notFound())
+    .finally(() => {});
 
   return {
     title: asText(page.data.title),
     description: page.data.meta_description,
     openGraph: {
       title: page.data.meta_title ?? undefined,
-      images: [{ url: page.data.meta_image.url ?? "" }],
+      images: page.data.meta_image?.url
+        ? [{ url: page.data.meta_image.url }]
+        : [],
     },
   };
 }
@@ -41,10 +48,12 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   const client = createClient();
 
-  // Get all pages from Prismic, except the homepage.
   const pages = await client.getAllByType("page", {
     filters: [filter.not("my.page.uid", "home")],
   });
 
-  return pages.map((page) => ({ uid: page.uid }));
+  return pages.map((page) => ({
+    uid: page.uid,
+    lang: page.lang, // ✅ return lang as plain string
+  }));
 }
