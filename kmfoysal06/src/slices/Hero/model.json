@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "hello_text": {
+          "type": "Text",
+          "config": {
+            "label": "Hello Text",
+            "placeholder": "Hello, I am"
+          }
+        },
         "developer_full_name": {
           "type": "Text",
           "config": {

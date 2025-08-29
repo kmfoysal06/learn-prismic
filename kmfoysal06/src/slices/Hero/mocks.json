@@ -65,6 +65,11 @@
 				"__TYPE__": "FieldContent",
 				"type": "Text",
 				"value": "I have been exploring web development for almost 4 years. after 2021 I strongly started learning WordPress In Depth.I started Developing simple WordPress Plugin and Theme. and successfully published some WordPress Plugins and Themes in The WordPress Plugin and Theme Directory. Earlier I DId Developed A WordPress Plugin That Let Admin of The Site To Create Portfolio With Input From Dashboard Where I Used PHP OOP for Maintainable Code,Webpack for Compiling SAAS,JS,TailWindCSS and WordPress Option API."
+			},
+			"hello_text": {
+				"__TYPE__": "FieldContent",
+				"value": "choose",
+				"type": "Text"
 			}
 		},
 		"items": []

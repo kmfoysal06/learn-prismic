@@ -24,7 +24,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
       >
         <div className="charming-portfolio-container charming-portfolio-hero-section">
               <div className="hero-text hero__inner">
-                  <h2>Hello, I am <span className="highlight">{slice.primary.developer_full_name}</span></h2>
+                  <h2>{slice.primary.hello_text ?? "Hello, I am"} <span className="highlight">{slice.primary.developer_full_name}</span></h2>
                   <p className="short-description">{slice.primary.developer_bio}</p>
                   <ul className="charming-portfolio-social-links">
                       {slice.primary.social_links.map((item) => {

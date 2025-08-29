@@ -696,6 +696,22 @@ export interface HeaderSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Logo Link field in *Header → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.default.primary.logo_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  logo_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -754,6 +770,16 @@ export interface HeroSliceDefaultPrimarySocialLinksItem {
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
+  /**
+   * Hello Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Hello, I am
+   * - **API ID Path**: hero.default.primary.hello_text
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  hello_text: prismic.KeyTextField;
+
   /**
    * Developer Full Name field in *Hero → Default → Primary*
    *

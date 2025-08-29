@@ -48,6 +48,17 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "logo_link": {
+          "type": "Link",
+          "config": {
+            "label": "Logo Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": false,
+            "repeat": false
+          }
         }
       },
       "items": {}

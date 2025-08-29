@@ -33,9 +33,12 @@ const Header: FC<HeaderProps> = ({ slice }) => {
     >
       <header className="charming-portfolio-header charming-portfolio-container" role="banner">
         <h3>
-          <Link href="/" className="header-logo">
+          {/* <Link href={slice.primary.logo_link} className="header-logo">
             {slice.primary.logo_text}
-          </Link>
+          </Link> */}
+          <PrismicNextLink field={slice.primary.logo_link} className="header-logo">
+            {slice.primary.logo_text}
+          </PrismicNextLink>
         </h3>
         <ul className="header-nav">
           {slice.primary.header_links.map((link, key) => (

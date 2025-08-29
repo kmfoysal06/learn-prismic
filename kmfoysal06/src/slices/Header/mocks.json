@@ -47,12 +47,20 @@
 				]
 			},
 			"github_link": {
-				"__TYPE__": "LinkContent",
 				"key": "faceb073-ab84-4c7b-8335-31876c82943b",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io",
 					"text": "back"
+				}
+			},
+			"logo_link": {
+				"__TYPE__": "LinkContent",
+				"key": "cb578a40-a4c2-412f-b3d4-c49f6fd62ca5",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
 				}
 			}
 		},
