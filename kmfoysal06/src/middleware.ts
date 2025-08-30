@@ -22,7 +22,6 @@ export async function middleware(request: NextRequest) {
     const pathnameIsMissingLocale = locales.every(
         (locale) => {
             const hasLocalMapping = Object.keys(knownMapping).includes(locale);
-            console.log("hasLocalMapping", hasLocalMapping)
             if((!pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`)) {
                 return true;
             }else {
@@ -30,17 +29,6 @@ export async function middleware(request: NextRequest) {
             }
         }
     );
-
-    // console.log('pathname missing', pathname);
-
-    // if(!pathnameIsMissingLocale) {
-    //     // if its en or fr then change it to en-us or fr-ca
-    //     // const [key, value] = pathnameIsMissingLocale;
-    //     // const pathLocale = knownMapping[pathname.slice(1)] || defaultLocale;
-    //     // pathname = pathname.replace(`/${key}`, `/${value}`);
-    //     console.log('sliced pathnaem', pathname.slice(1));
-    // }
-
 
   // Redirect to default locale if there is no supported locale prefix
   if (pathnameIsMissingLocale) {

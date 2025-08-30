@@ -4,6 +4,7 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { sendForm } from "emailjs-com";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 
 /**
@@ -23,11 +24,29 @@ const Contact: FC<ContactProps> = ({ slice }) => {
     e.preventDefault();
     sendForm(SERVICE_ID, TEMPLATE_ID, e.currentTarget, PUBLIC_KEY)
       .then((result) => {
-        console.log(result.text);
-        alert('Message Sent Successfully')
+        toast.success('Message Sent Successfully!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: 1,
+            theme: "colored",
+            transition: Bounce,
+          });
       }, (error) => {
-        console.log(error.text);
-        alert('Something went wrong!')
+        toast.error('Something went wrong!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: 1,
+            theme: "colored",
+            transition: Bounce,
+          });
       });
   (e.target as HTMLFormElement).reset();
   };
@@ -36,6 +55,19 @@ const Contact: FC<ContactProps> = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+        />
       <div className="charming-portfolio-container charming-portfolio-contact-section">
         <div className="section-header">
           <h2 className="badge">{slice.primary.badge}</h2>

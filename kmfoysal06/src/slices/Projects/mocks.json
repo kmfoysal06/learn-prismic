@@ -38,7 +38,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
@@ -57,7 +56,20 @@
 										"background": "transparent"
 									},
 									"alt": "space",
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
+								}
+							],
+							[
+								"live_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "411f6fab-512d-4367-806e-15a450d2e2e1",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
 								}
 							]
 						]

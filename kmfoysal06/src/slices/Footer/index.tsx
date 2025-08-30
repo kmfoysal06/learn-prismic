@@ -2,10 +2,14 @@ import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
+import { createClient } from "@/prismicio";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faSearch} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { getLocales } from "@/utils/getLocales";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+
 
 /**
  * Props for `Footer`.
@@ -15,7 +19,11 @@ export type FooterProps = SliceComponentProps<Content.FooterSlice>;
 /**
  * Component for "Footer" Slices.
  */
-const Footer: FC<FooterProps> = ({ slice }) => {
+const Footer: FC<FooterProps> = async ({ slice }) => {
+  const client = createClient();
+  let footerQuery = await client.getByType("footer");
+  const footer = footerQuery.results[0];
+  const locales = await getLocales(footer, client);
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -55,12 +63,13 @@ const Footer: FC<FooterProps> = ({ slice }) => {
           <div className="footer-subsection">
             <h3>Languages:</h3>
             <ul>
-              <li> 
+              {/* <li> 
                 <Link href={'/en-us'}>English</Link>
                </li>
               <li> 
                 <Link href={'/fr-ca'}>French</Link>
-               </li>
+               </li> */}
+               <LanguageSwitcher locales={locales}/>
             </ul>
           </div>
           <div className="footer-subsection">

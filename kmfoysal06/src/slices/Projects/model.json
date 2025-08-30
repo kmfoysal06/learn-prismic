@@ -53,6 +53,17 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "live_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Live Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
               }
             }
           }

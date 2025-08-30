@@ -883,6 +883,22 @@ export interface ProjectsSliceDefaultPrimaryProjectsItem {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Live Link field in *Projects → Default → Primary → Projects*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.default.primary.projects[].live_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  live_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1020,6 +1036,16 @@ export interface SkillsSliceDefaultPrimarySkillsItem {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   skill_logo: prismic.ImageField<never>;
+
+  /**
+   * Description field in *Skills → Default → Primary → Skills*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.default.primary.skills[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
 }
 
 /**

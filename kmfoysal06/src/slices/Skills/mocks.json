@@ -52,6 +52,14 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "free",
+									"type": "Text"
+								}
 							]
 						]
 					}

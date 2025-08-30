@@ -54,10 +54,8 @@ export default async function RootLayout({
   children,
   params
 }: RootLayoutProps) {
-  // console.log('fucking params', params);
   return (
     <html lang="en">
-        
       <body>
         <Header params={params} />
         {children}
