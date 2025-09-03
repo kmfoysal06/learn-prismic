@@ -24,7 +24,7 @@ class PrismicClient {
         curl_close($ch);
         
         if ($httpCode !== 200) {
-            throw new \Exception('Failed to fetch API info');
+            throw new \Exception('Failed to fetch API info a');
         }
         
         return json_decode($response, true);
@@ -55,7 +55,7 @@ class PrismicClient {
             curl_close($ch);
             
             if ($httpCode !== 200) {
-                throw new \Exception('Failed to fetch document');
+                throw new \Exception('Failed to fetch document b');
             }
             
             $result = json_decode($response, true);

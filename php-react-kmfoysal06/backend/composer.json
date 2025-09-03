@@ -1,5 +1,5 @@
 {
-  "name": "php-react-kmfoysal06-backend",
+  "name": "my-vendor/php-prismic",
   "description": "PHP backend for fetching Prismic CMS data",
   "require": {
     "prismic/php-sdk": "^4.0"
