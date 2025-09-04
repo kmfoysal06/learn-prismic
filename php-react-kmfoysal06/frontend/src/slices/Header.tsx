@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = ({ slice }) => {
     const header = e.currentTarget.closest(".charming-portfolio-header");
     header?.classList.toggle("mobile-menu-open");
   };
-
+  console.log('header slice', slice);
   return (
     <section
       data-slice-type={slice.slice_type}

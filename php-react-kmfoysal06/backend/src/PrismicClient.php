@@ -2,70 +2,56 @@
 
 namespace App;
 
+require '../vendor/autoload.php';
+
+use Prismic\Api;
+use Prismic\Predicates;
+
 class PrismicClient {
     private $repositoryName;
     private $apiEndpoint;
-    
+    private $api;
+
     public function __construct() {
         $this->repositoryName = 'kmfoysal06';
         $this->apiEndpoint = 'https://' . $this->repositoryName . '.cdn.prismic.io/api/v2';
-    }
-    
-    public function getAPI() {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->apiEndpoint);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Accept: application/json'
-        ]);
-        
-        $response = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        
-        if ($httpCode !== 200) {
-            throw new \Exception('Failed to fetch API info a');
-        }
-        
-        return json_decode($response, true);
+        $this->api = Api::get($this->apiEndpoint);
     }
     
     public function getDocumentByUID($type, $uid, $lang = null) {
         try {
-            $api = $this->getAPI();
-            $documentsUrl = $api['refs'][0]['ref'];
-            
-            $queryUrl = $this->apiEndpoint . '/documents/search?ref=' . $documentsUrl;
-            $queryUrl .= '&q=[[at(document.type,"' . $type . '")]]';
-            $queryUrl .= '&q=[[at(my.' . $type . '.uid,"' . $uid . '")]]';
-            
+            $predicates = [
+                Predicates::at('document.type', $type),
+                Predicates::at('my.' . $type . '.uid', $uid)
+            ];
+            $options = [];
             if ($lang) {
-                $queryUrl .= '&lang=' . $lang;
+                $options['lang'] = $lang;
             }
-            
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $queryUrl);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Accept: application/json'
-            ]);
-            
-            $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-            
-            if ($httpCode !== 200) {
-                throw new \Exception('Failed to fetch document b');
+            $response = $this->api->query($predicates, $options);
+            if (empty($response->results)) {
+                throw new \Exception('Document not found a');
             }
-            
-            $result = json_decode($response, true);
-            
-            if (empty($result['results'])) {
-                throw new \Exception('Document not found');
+            return $response->results[0];
+        } catch (\Exception $e) {
+            error_log('Prismic API Error: ' . $e->getMessage());
+            throw $e;
+        }
+    }
+    public function getDocumentByType($type, $lang = null) {
+        try {
+            $predicates = [
+                Predicates::at('document.type', $type)
+            ];
+            $options = [];
+            if ($lang) {
+                $options['lang'] = $lang;
             }
-            
-            return $result['results'][0];
-            
+            $response = $this->api->query($predicates, $options);
+            if (empty($response->results)) {
+                throw new \Exception('Document not found a');
+            }
+            return $response->results[0];
         } catch (\Exception $e) {
             error_log('Prismic API Error: ' . $e->getMessage());
             throw $e;

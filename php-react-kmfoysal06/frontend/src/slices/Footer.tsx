@@ -8,6 +8,7 @@ interface FooterProps {
 }
 
 const Footer: FC<FooterProps> = ({ slice }) => {
+  console.log('slicessss', slice)
   return (
     <section
       data-slice-type={slice.slice_type}

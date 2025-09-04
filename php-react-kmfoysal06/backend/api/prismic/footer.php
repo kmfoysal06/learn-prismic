@@ -19,8 +19,9 @@ try {
     
     // Get the home document
     $lang = $_GET['lang'] ?? 'en-us';
-    $document = $prismicClient->getDocumentByUID('home', 'home', $lang);
-    
+    // $document = $prismicClient->getDocumentByUID('footer', 'footer', $lang);
+   
+    $document = $prismicClient->getDocumentByType('footer', $lang);
     // Transform the document data for object from Prismic\Api
     $transformedDocument = [
         'id' => $document->id,

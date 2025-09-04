@@ -3,6 +3,7 @@
   "description": "PHP backend for fetching Prismic CMS data",
   "require": {
     "prismic/php-sdk": "^4.0"
+
   },
   "autoload": {
     "psr-4": {
