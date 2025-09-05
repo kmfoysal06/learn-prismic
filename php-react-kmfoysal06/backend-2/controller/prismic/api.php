@@ -21,5 +21,3 @@ if(!isset($paths[3])) {
 
 $page_uid = $paths[3];
 require_once KMFOYSAL_PRISMIC_DIR. '/controller/prismic/get_by_uid.php';
-
-dd($paths);
