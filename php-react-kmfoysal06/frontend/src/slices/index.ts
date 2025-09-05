@@ -5,6 +5,7 @@ import Projects from './Projects';
 import Experiences from './Experiences';
 import Contact from './Contact';
 import Footer from './Footer';
+import RichText from './RichText';
 
 export {
   Hero,
@@ -13,5 +14,6 @@ export {
   Projects,
   Experiences,
   Contact,
-  Footer
+  Footer,
+  RichText
 };

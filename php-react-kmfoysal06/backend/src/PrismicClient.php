@@ -49,7 +49,7 @@ class PrismicClient {
             }
             $response = $this->api->query($predicates, $options);
             if (empty($response->results)) {
-                throw new \Exception('Document not found a');
+                throw new \Exception('Document not found b');
             }
             return $response->results[0];
         } catch (\Exception $e) {

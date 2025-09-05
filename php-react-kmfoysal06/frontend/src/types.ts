@@ -68,6 +68,14 @@ export interface SkillsSlice {
   };
 }
 
+export interface RichTextSlice {
+  slice_type: 'rich_text';
+  variation: string;
+  primary: {
+    content: string;
+  };
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -144,6 +152,7 @@ export type SliceType =
   | ProjectsSlice 
   | ExperiencesSlice 
   | ContactSlice 
+  | RichTextSlice
   | FooterSlice;
 
 export interface PrismicDocument {

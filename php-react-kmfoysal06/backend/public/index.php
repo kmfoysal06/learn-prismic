@@ -1,32 +1,39 @@
 <?php
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
 // Simple router for the PHP-React application
 $request = $_SERVER['REQUEST_URI'];
-$path = parse_url($request, PHP_URL_PATH);
+$apiPath = parse_url($request, PHP_URL_PATH);
 
-// Handle API routes
-if (strpos($path, '/api/') === 0) {
-    $apiPath = substr($path, 4); // Remove '/api' prefix
-    $filePath = __DIR__ . '/api' . $apiPath . '.php';
-    
-    if (file_exists($filePath)) {
-        include $filePath;
-    } else {
-        // Try to find the file in the correct location
-        $segments = explode('/', trim($apiPath, '/'));
-        if (count($segments) >= 2) {
-            $newPath = __DIR__ . '/../api/' . implode('/', $segments) . '.php';
-            if (file_exists($newPath)) {
-                include $newPath;
-                exit;
-            }
-        }
-        
-        http_response_code(404);
-        echo json_encode(['error' => 'API endpoint not found', 'path' => $apiPath, 'file' => $filePath]);
+$langs = ['en-us', 'fr-ca'];
+
+array_map(function($l) use(&$apiPath) {
+    if(str_starts_with(trim($apiPath, '/'), $l)) {
+        $_GET['lang'] = $l; 
+        // trim the lang
+        $apiPath = '/'. trim(substr($apiPath, strlen($l) + 1), '/');
     }
-    exit;
-}
+}, $langs);
+
+        $apiContrPath = __DIR__ .'/../api/prismic/web.php';
+    
+        if(file_exists(($apiContrPath))) {
+            require_once ($apiContrPath);
+            exit;
+        }
+//
+//// Handle API routes
+//if (strpos($apiPath, '/api/') === 0) {
+//    $apiPath = substr($apiPath, 12); // Remove '/api' prefix
+//    $apiContrPath = __DIR__ .'/../api/prismic/web.php';
+//
+//    if(file_exists(($apiContrPath))) {
+//        require_once ($apiContrPath);
+//        exit;
+//    }
+//}
 
 // Serve React app for all other routes
 ?>
