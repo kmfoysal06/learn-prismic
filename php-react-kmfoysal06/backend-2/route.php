@@ -5,11 +5,12 @@ function route() {
     $paths = explode('/', $uri);
     $paths = array_values(array_filter($paths));
 
+
     $routes = [
         'api' => 'controller/api.php',
     ];
     
-    $main_path = $paths[0];
+    $main_path = $paths[0] ?? '';
     if(array_key_exists($main_path, $routes)) {
         $path = KMFOYSAL_PRISMIC_DIR. '/' . $routes[$main_path];
         if(file_exists($path)) {
@@ -18,7 +19,9 @@ function route() {
             abort(500);
         }
     } else {
-        abort();
+        //served in public
+        require_once KMFOYSAL_PRISMIC_DIR. '/public/index.php';
+
     }
 
     
