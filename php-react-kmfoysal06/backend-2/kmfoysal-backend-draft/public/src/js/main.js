@@ -4,9 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App.jsx";
 import "../scss/main.scss";
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
 const root = ReactDOM.createRoot(document.getElementById("prismic-root"));
 root.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
 );
