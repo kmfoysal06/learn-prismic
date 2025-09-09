@@ -31,7 +31,6 @@ const Home = () => {
                </div>
             ) : home ? (
                 <div>
-                    <h2>{home.uid}</h2>
                     {home.data.slices.map((slice) => (
                         <RenderSlice slice={slice} key={slice.id} />
                     ))}
