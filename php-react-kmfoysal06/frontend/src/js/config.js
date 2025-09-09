@@ -1,0 +1,3 @@
+const BACKEND = "/"
+
+export { BACKEND }
