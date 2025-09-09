@@ -79,7 +79,7 @@ const Contact = ({ slice }) => {
               />
             </div>
             <div className="form-data">
-              <form onSubmit={handleOnSubmit}>
+              <form className="form-container" onSubmit={handleOnSubmit}>
                 <input type="text" name="from_name" placeholder="Your Name" required />
                 <input type="email" name="from_email" placeholder="Your Email" required />
                 <input type="text" name="subject" placeholder="Subject" required />
