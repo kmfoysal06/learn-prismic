@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import RenderSlice from './RenderSlice.jsx';
-import { BACKEND } from '../config.js';
+//import { BACKEND } from '../config.js';
 
 
 const fetchPage = async (uid) => {
@@ -22,9 +22,14 @@ const Page = () => {
     return (
         <div>
             {isLoading ? (
-                <p>Loading...</p>
+                <div style={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center"}} className="kmfoysal06-center-section">
+                    <p>Loading...</p>
+               </div>
+
             ) : error ? (
-                <p>Error loading page.</p>
+                <div style={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center"}} className="kmfoysal06-center-section">
+                    <p>Error loading home page.</p>
+               </div>
             ) : page ? (
                 <div>
                     {page.data.slices.map((slice) => (

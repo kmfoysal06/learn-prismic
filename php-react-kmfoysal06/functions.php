@@ -3,6 +3,9 @@ define("KMFOYSAL_PRISMIC_DIR", __DIR__);
 define("ABSPATH", __DIR__ . "/../");
 define("ENV", "development");
 define("KMFOYSAL_PRISMIC_REPO", "kmfoysal06");
+define("KMFOYSAL_HOME", "http://localhost:6969");
+define("KMFOYSAL_HOME", "https://prismic-php.kmfoysal06.com");
+
 
 
 require_once KMFOYSAL_PRISMIC_DIR . '/vendor/autoload.php';

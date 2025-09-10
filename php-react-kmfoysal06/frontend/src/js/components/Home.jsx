@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import RenderSlice from './RenderSlice.jsx';
-import { BACKEND } from '../config.js';
+//import { BACKEND } from '../config.js';
 import React from 'react';
 
 

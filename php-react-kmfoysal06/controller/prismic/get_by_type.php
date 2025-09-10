@@ -12,7 +12,7 @@ http_response_code(200);
 
 $repo_name = KMFOYSAL_PRISMIC_REPO;
 $api = Api::get("https://{$repo_name}.prismic.io/api/v2");
-$document = $api->getSingle($page_type, ['lang' => $lang]);
+//$document = $api->getSingle($page_type, ['lang' => $lang]);
 
 
 // echo json_encode($document, JSON_PRETTY_PRINT);
@@ -26,5 +26,19 @@ if ($cached) {
 	exit;
 }
 $document = $api->getSingle($page_type, ['lang' => $lang]);
+if(!$document) {
+    $fallback_types = ['page'];
+//    if the document not found it will try to fetch by uid with fallback types
+    foreach($fallback_types as $type) {
+        $document = $api->getByUID($type, $page_type, ['lang' => $lang]);
+        if($document) break;
+    }
+}
+
+if(!$document) {
+    http_response_code(404);
+    echo json_encode(['error' => 'Document not found'], JSON_PRETTY_PRINT);
+    exit;
+}
 cache_set($cache_key, $document, 300);
 echo json_encode($document, JSON_PRETTY_PRINT);
